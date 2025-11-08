@@ -1,28 +1,47 @@
-import { useState } from 'react'
+import Hero from './components/Hero';
+import PBLCTOverview from './components/PBLCTOverview';
+import PolynomialSandbox from './components/PolynomialSandbox';
+import ScenarioCards from './components/ScenarioCards';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function Header() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
+    <header className="mx-auto max-w-6xl px-6 py-5 sm:px-10">
+      <div className="flex items-center justify-between">
+        <a href="#" className="text-lg font-semibold text-slate-900">PolyLab</a>
+        <nav className="hidden gap-6 text-sm text-slate-700 sm:flex">
+          <a href="#pbl" className="hover:text-slate-900">Approach</a>
+          <a href="#sandbox" className="hover:text-slate-900">Sandbox</a>
+          <a href="#" className="rounded-lg bg-slate-900 px-3 py-1.5 font-medium text-white hover:bg-slate-800">Get Started</a>
+        </nav>
       </div>
-    </div>
-  )
+    </header>
+  );
 }
 
-export default App
+function Footer() {
+  return (
+    <footer className="mx-auto mt-16 max-w-6xl px-6 py-10 sm:px-10">
+      <div className="rounded-2xl border border-slate-200 bg-white p-6 text-sm text-slate-600">
+        <p>
+          Built for technology-forward, problem-based learning of polynomials. Practice computational thinking skills in an interactive environment.
+        </p>
+        <p className="mt-2">© {new Date().getFullYear()} PolyLab. All rights reserved.</p>
+      </div>
+    </footer>
+  );
+}
+
+export default function App() {
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-white to-slate-50">
+      <Header />
+      <main className="mx-auto max-w-6xl px-6 sm:px-10">
+        <Hero />
+        <PBLCTOverview />
+        <ScenarioCards />
+        <PolynomialSandbox />
+      </main>
+      <Footer />
+    </div>
+  );
+}
